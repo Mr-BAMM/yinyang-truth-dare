@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { RefreshCw } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 interface Task {
   id: number;
@@ -8,11 +8,11 @@ interface Task {
 }
 
 /**
- * DESIGN PHILOSOPHY: Warme Nostalgie (70er/80er Retro)
- * - Schwarzer Hintergrund mit Terrakotta/Senf Akzenten (Yin-Seite)
- * - Große, kühne Typografie (Fredoka One für Aufgaben)
- * - Sanfte Fade-In Animationen beim Laden
- * - Minimale Navigation, nur essenzielle Buttons
+ * DESIGN PHILOSOPHY: Elegantes Yin-Yang Branding
+ * - Minimalistischer, eleganter Look inspiriert vom Schlüsselanhänger
+ * - Keine Icons oder Masken, nur reine Typografie und Raum
+ * - Sanfte Übergänge und fließende Animationen
+ * - Fokus auf die Aufgabe selbst
  */
 
 export default function Truth() {
@@ -49,58 +49,73 @@ export default function Truth() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-black text-white flex flex-col items-center justify-center p-4 relative overflow-hidden">
-      {/* Hintergrund-Muster */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-0 left-0 w-40 h-40 rounded-full border-8 border-yellow-600"></div>
-        <div className="absolute bottom-0 right-0 w-48 h-48 rounded-full border-8 border-orange-600"></div>
-      </div>
-
-      {/* Yin-Yang Symbol Watermark */}
-      <div className="absolute top-4 right-4 opacity-20 text-4xl">☯️</div>
+    <div 
+      className="min-h-screen w-full flex flex-col items-center justify-center p-4 relative overflow-hidden"
+      style={{
+        backgroundImage: 'url("https://private-us-east-1.manuscdn.com/sessionFile/Zwv6S6CBlR3wzUTinHwyy6/sandbox/jgV4uff51Wcn4pdQTbl6Jf-img-1_1771496329000_na1fn_dHJ1dGgtZWxlZ2FudC1iZw.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvWnd2NlM2Q0JsUjN3elVUaW5Id3l5Ni9zYW5kYm94L2pnVjR1ZmY1MVdjbjRwZFFUYmw2SmYtaW1nLTFfMTc3MTQ5NjMyOTAwMF9uYTFmbl9kSEoxZEdndFpXeGxaMkZ1ZEMxaVp3LnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=nKuNH-O84wLTBGHfWCTKbGd0ejHgkRZVI8xs-01t39EIOVbDWD4lQCBwO3CajgzNKo3T1-4uKgs1DHjLLYr5wyZTCXYPI-4yrf0m-s52-iJ-bxrymoSJS4i14e~Ucvcf~OScA00AnYFr1V52lz7xxNey21zvc6ob1uFHFCDu4XuyclA1wdOdzaHrML-fS0VyzELxXNSgYHHZ~vGYGa~ZgXAEDdYcdzRcBM2zrkrW2PHSHvqJh~4n35TrD4~ryW~Zr2B368MKH-MUNN55dPIGRE6xBsumEtdITVY9pIjpI6wygqZ5dHkFm2xvLNAJ6nhQQl1T6C6xAAMomyMKtDsyWg__")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Overlay für bessere Lesbarkeit */}
+      <div className="absolute inset-0 bg-white/5 backdrop-blur-sm pointer-events-none"></div>
 
       {/* Hauptinhalt */}
-      <div className="relative z-10 w-full max-w-md">
-        <h1 className="text-4xl font-bold text-center mb-2 text-yellow-500">
-          WAHRHEIT
-        </h1>
-        <div className="h-1 w-24 bg-gradient-to-r from-orange-500 to-yellow-500 mx-auto mb-8"></div>
+      <div className="relative z-10 w-full max-w-md flex flex-col items-center">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-bold text-gray-900 mb-2">TRUTH</h1>
+          <div className="h-1 w-16 bg-gradient-to-r from-gray-400 to-gray-600 mx-auto"></div>
+        </div>
 
-        {/* Aufgabenkarte */}
+        {/* Aufgabenkarte - Elegant und minimalistisch */}
         <div
-          className={`bg-gradient-to-br from-orange-900 to-orange-800 rounded-3xl p-8 shadow-2xl min-h-64 flex flex-col items-center justify-center text-center transition-all duration-300 ${
+          className={`w-full bg-white/90 backdrop-blur-md rounded-2xl p-10 shadow-2xl min-h-80 flex flex-col items-center justify-center text-center transition-all duration-300 border border-white/50 ${
             isFlipping ? "opacity-0 scale-95" : "opacity-100 scale-100"
           }`}
         >
           {loading ? (
-            <div className="text-lg text-yellow-200">Lädt...</div>
+            <div className="text-lg text-gray-500">Lädt...</div>
           ) : currentTask ? (
-            <div className="space-y-4">
-              <div className="text-5xl mb-4">❓</div>
-              <p className="text-2xl font-bold text-white leading-relaxed">
+            <div className="space-y-6">
+              {/* Task Counter */}
+              <div className="text-sm text-gray-400 font-medium tracking-widest">
+                QUESTION {currentTask.id} OF {tasks.length}
+              </div>
+              
+              {/* Aufgabentext */}
+              <p className="text-3xl font-bold text-gray-900 leading-relaxed">
                 {currentTask.text}
               </p>
+
+              {/* Dekorative Linie */}
+              <div className="flex items-center gap-3 justify-center pt-4">
+                <div className="h-px w-8 bg-gradient-to-r from-transparent to-gray-300"></div>
+                <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                <div className="h-px w-8 bg-gradient-to-l from-transparent to-gray-300"></div>
+              </div>
             </div>
           ) : (
-            <div className="text-lg text-yellow-200">Keine Aufgaben verfügbar</div>
+            <div className="text-lg text-gray-500">Keine Aufgaben verfügbar</div>
           )}
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex gap-4 mt-12 justify-center">
+        <div className="flex gap-4 mt-12 justify-center w-full">
           <Button
             onClick={handleNextTask}
             disabled={loading || tasks.length === 0}
-            className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-black font-bold text-lg px-8 py-6 rounded-full shadow-lg transform transition hover:scale-105"
+            className="bg-gray-900 hover:bg-gray-800 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transform transition hover:scale-105 flex items-center gap-2"
           >
-            <RefreshCw className="mr-2" size={20} />
-            Nächste
+            Next Question
+            <ChevronRight size={20} />
           </Button>
         </div>
 
         {/* Hinweis */}
-        <div className="text-center mt-8 text-yellow-200 text-sm">
-          <p>Scanne den NFC-Chip auf der Yin-Seite</p>
+        <div className="text-center mt-12 text-gray-600 text-sm">
+          <p className="font-medium">Scan the white NFC chip to begin</p>
         </div>
       </div>
     </div>
