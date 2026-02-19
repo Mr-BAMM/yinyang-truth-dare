@@ -32,8 +32,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(2px);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
             pointer-events: none;
             z-index: 1;
         }
@@ -62,7 +62,8 @@
             color: #b88fdb;
             letter-spacing: 0.15em;
             margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0 0 20px rgba(0,0,0,0.8), 2px 2px 8px rgba(0,0,0,0.6);
+            filter: drop-shadow(0 0 10px rgba(184, 143, 219, 0.3));
         }
 
         .divider {
@@ -182,6 +183,7 @@
             object-fit: contain;
             position: relative;
             z-index: 2;
+            filter: drop-shadow(0 0 15px rgba(184, 143, 219, 0.6)) drop-shadow(0 0 30px rgba(122, 58, 237, 0.4));
         }
 
         @keyframes float {
