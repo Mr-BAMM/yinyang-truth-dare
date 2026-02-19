@@ -1,0 +1,126 @@
+{
+  "wahrheit": [
+    {
+      "id": 1,
+      "text": "Was ist deine größte Angst?"
+    },
+    {
+      "id": 2,
+      "text": "Wen hast du zuletzt geküsst?"
+    },
+    {
+      "id": 3,
+      "text": "Was ist das peinlichste, das dir je passiert ist?"
+    },
+    {
+      "id": 4,
+      "text": "Welcher Person würdest du gerne sagen, dass du sie liebst?"
+    },
+    {
+      "id": 5,
+      "text": "Was ist deine größte Schwäche?"
+    },
+    {
+      "id": 6,
+      "text": "Hast du jemals gelogen, um jemanden zu schützen?"
+    },
+    {
+      "id": 7,
+      "text": "Was ist das Geheimnis, das du am besten bewahrt hast?"
+    },
+    {
+      "id": 8,
+      "text": "Wenn du eine Person sein könntest, wer wäre es?"
+    },
+    {
+      "id": 9,
+      "text": "Was ist dein größtes Talent?"
+    },
+    {
+      "id": 10,
+      "text": "Welche Person bewunderst du am meisten?"
+    },
+    {
+      "id": 11,
+      "text": "Was ist das Beste, das dir dieses Jahr passiert ist?"
+    },
+    {
+      "id": 12,
+      "text": "Hast du jemals etwas gestohlen?"
+    },
+    {
+      "id": 13,
+      "text": "Was ist dein größtes Traum?"
+    },
+    {
+      "id": 14,
+      "text": "Welche Person magst du am liebsten in dieser Gruppe?"
+    },
+    {
+      "id": 15,
+      "text": "Was ist das Peinlichste in deinem Zimmer?"
+    }
+  ],
+  "pflicht": [
+    {
+      "id": 1,
+      "text": "Singe eine Strophe deines Lieblingssongs"
+    },
+    {
+      "id": 2,
+      "text": "Mache 10 Liegestütze"
+    },
+    {
+      "id": 3,
+      "text": "Rufe einen Freund an und sag ihm, dass du ihn liebst"
+    },
+    {
+      "id": 4,
+      "text": "Tanze 30 Sekunden lang ohne Musik"
+    },
+    {
+      "id": 5,
+      "text": "Imitiere die Person neben dir"
+    },
+    {
+      "id": 6,
+      "text": "Schreibe eine lustige Nachricht an einen zufälligen Kontakt"
+    },
+    {
+      "id": 7,
+      "text": "Mache ein Selfie mit einer dummen Grimasse"
+    },
+    {
+      "id": 8,
+      "text": "Sprich 1 Minute lang nur in einer anderen Sprache"
+    },
+    {
+      "id": 9,
+      "text": "Iss etwas Saures ohne Grimasse zu ziehen"
+    },
+    {
+      "id": 10,
+      "text": "Laufe rückwärts zum nächsten Zimmer"
+    },
+    {
+      "id": 11,
+      "text": "Schreibe dein Name mit deiner nicht-dominanten Hand"
+    },
+    {
+      "id": 12,
+      "text": "Mache einen Handstand (oder versuche es)"
+    },
+    {
+      "id": 13,
+      "text": "Erzähle einen Witz, der dich selbst zum Lachen bringt"
+    },
+    {
+      "id": 14,
+      "text": "Trage deine Kleidung verkehrt herum für 5 Minuten"
+    },
+    {
+      "id": 15,
+      "text": "Umarme die Person, die dir am nächsten sitzt"
+    }
+  ]
+}
