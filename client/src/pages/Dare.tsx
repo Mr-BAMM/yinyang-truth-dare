@@ -22,12 +22,12 @@ export default function Dare() {
   const [isFlipping, setIsFlipping] = useState(false);
 
   useEffect(() => {
-    fetch("/tasks.json")
+    fetch("/pflicht.json")
       .then((res) => res.json())
       .then((data) => {
-        setTasks(data.pflicht);
+        setTasks(data);
         const randomTask =
-          data.pflicht[Math.floor(Math.random() * data.pflicht.length)];
+          data[Math.floor(Math.random() * data.length)];
         setCurrentTask(randomTask);
         setLoading(false);
       })

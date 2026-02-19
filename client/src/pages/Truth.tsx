@@ -22,12 +22,12 @@ export default function Truth() {
   const [isFlipping, setIsFlipping] = useState(false);
 
   useEffect(() => {
-    fetch("/tasks.json")
+    fetch("/wahrheit.json")
       .then((res) => res.json())
       .then((data) => {
-        setTasks(data.wahrheit);
+        setTasks(data);
         const randomTask =
-          data.wahrheit[Math.floor(Math.random() * data.wahrheit.length)];
+          data[Math.floor(Math.random() * data.length)];
         setCurrentTask(randomTask);
         setLoading(false);
       })
