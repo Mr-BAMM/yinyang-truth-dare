@@ -8,11 +8,11 @@ interface Task {
 }
 
 /**
- * DESIGN PHILOSOPHY: Elegantes Yin-Yang Branding
- * - Minimalistischer, eleganter Look inspiriert vom Schlüsselanhänger
- * - Keine Icons oder Masken, nur reine Typografie und Raum
- * - Sanfte Übergänge und fließende Animationen
- * - Fokus auf die Aufgabe selbst
+ * DESIGN PHILOSOPHY: Truth - Hell, elegant, luxuriös
+ * - Heller Hintergrund mit Gold-Akzenten
+ * - Chinesischer Drachen oben als elegante Dekoration
+ * - Fokus auf Lesbarkeit und Eleganz
+ * - Club-Party Feeling
  */
 
 export default function Truth() {
@@ -22,12 +22,10 @@ export default function Truth() {
   const [isFlipping, setIsFlipping] = useState(false);
 
   useEffect(() => {
-    // Lade die Aufgaben aus der JSON-Datei
     fetch("/tasks.json")
       .then((res) => res.json())
       .then((data) => {
         setTasks(data.wahrheit);
-        // Wähle eine zufällige Aufgabe
         const randomTask =
           data.wahrheit[Math.floor(Math.random() * data.wahrheit.length)];
         setCurrentTask(randomTask);
@@ -52,70 +50,76 @@ export default function Truth() {
     <div 
       className="min-h-screen w-full flex flex-col items-center justify-center p-4 relative overflow-hidden"
       style={{
-        backgroundImage: 'url("https://private-us-east-1.manuscdn.com/sessionFile/Zwv6S6CBlR3wzUTinHwyy6/sandbox/jgV4uff51Wcn4pdQTbl6Jf-img-1_1771496329000_na1fn_dHJ1dGgtZWxlZ2FudC1iZw.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvWnd2NlM2Q0JsUjN3elVUaW5Id3l5Ni9zYW5kYm94L2pnVjR1ZmY1MVdjbjRwZFFUYmw2SmYtaW1nLTFfMTc3MTQ5NjMyOTAwMF9uYTFmbl9kSEoxZEdndFpXeGxaMkZ1ZEMxaVp3LnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=nKuNH-O84wLTBGHfWCTKbGd0ejHgkRZVI8xs-01t39EIOVbDWD4lQCBwO3CajgzNKo3T1-4uKgs1DHjLLYr5wyZTCXYPI-4yrf0m-s52-iJ-bxrymoSJS4i14e~Ucvcf~OScA00AnYFr1V52lz7xxNey21zvc6ob1uFHFCDu4XuyclA1wdOdzaHrML-fS0VyzELxXNSgYHHZ~vGYGa~ZgXAEDdYcdzRcBM2zrkrW2PHSHvqJh~4n35TrD4~ryW~Zr2B368MKH-MUNN55dPIGRE6xBsumEtdITVY9pIjpI6wygqZ5dHkFm2xvLNAJ6nhQQl1T6C6xAAMomyMKtDsyWg__")',
+        backgroundImage: 'url("https://private-us-east-1.manuscdn.com/sessionFile/Zwv6S6CBlR3wzUTinHwyy6/sandbox/5Ux86KHilLDUZStk400gi6-img-1_1771497195000_na1fn_dHJ1dGgtbGlnaHQtZWxlZ2FudA.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvWnd2NlM2Q0JsUjN3elVUaW5Id3l5Ni9zYW5kYm94LzVVeDg2S0hpbExEVVpTdGs0MDBnaTYtaW1nLTFfMTc3MTQ5NzE5NTAwMF9uYTFmbl9kSEoxZEdndGJHbG5hSFF0Wld4bFoyRnVkQS5wbmc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=oe5fI9K3JamAAq35anlmBPuiel0dB5uGkLoj3-1BuezTzJwSu~HmyBOQ11K~z-vYzyPQh5cAwrL7UDShhloVKpG1ByfZ~ASfcUFWeX~cvQZULchK7kKPF0CkGyDpPy6h1UDr~CFnZSyDBXZVudDblcGO0p7j4La4hwKhsQaTXBjewwn0YoqpKgQatMEg9UdOxHiWcKSN8jWF~gR~WFZ8irIo5DGtVttusOcnCEeVimFcC0vjpr8J7b2Z29o8gxqMkrxsbvdU9fQrAJPr~29ApdKuCvfo-fCF4Gq-IbRpcLHA4x7N18U7BBZt64Q~nwoUXyjTaatB6PJf1Uxu-tL4ig__")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
       }}
     >
-      {/* Overlay für bessere Lesbarkeit */}
-      <div className="absolute inset-0 bg-white/5 backdrop-blur-sm pointer-events-none"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-sm pointer-events-none"></div>
 
       {/* Hauptinhalt */}
       <div className="relative z-10 w-full max-w-md flex flex-col items-center">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-2">TRUTH</h1>
-          <div className="h-1 w-16 bg-gradient-to-r from-gray-400 to-gray-600 mx-auto"></div>
+        {/* Drachen Dekoration - Oben */}
+        <div className="mb-8 h-24 flex items-center justify-center">
+          <img
+            src="https://private-us-east-1.manuscdn.com/sessionFile/Zwv6S6CBlR3wzUTinHwyy6/sandbox/5Ux86KHilLDUZStk400gi6-img-3_1771497188000_na1fn_ZHJhZ29uLWxpZ2h0.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvWnd2NlM2Q0JsUjN3elVUaW5Id3l5Ni9zYW5kYm94LzVVeDg2S0hpbExEVVpTdGs0MDBnaTYtaW1nLTNfMTc3MTQ5NzE4ODAwMF9uYTFmbl9aSEpoWjI5dUxXeHBaMmgwLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=aSe0YtwgZjqXU3JvGFTj2ua6beG2PP1oQ2BO1FxREy2P3o-VgNEyabqhWM9DeevJ8B8Qh21grhzHBrpUV2KmsfCzaAvnd5PcgIO2xtOBWcVaaFPkgszBaiiXuW437BUtDRQMn~90uXxINpbU58~Ohp2BKt-JuH9E1e04mT-v15tcvfICcPmLuv2mvhLHKpw2jdpPgKznZ7UJbHlVIXgdwTwcXGSM5GqM4lSAH6LoSf15vh9TI1GZRdwZcAcF5LrS~CZ~8qZWbqeFLnlKoJjTqRzl5WWki12F5PKUSrBAR30373UCHKcZ4uIkgFyh4IwS7czNnoEk3Wb8d9VP-vVuNg__"
+            alt="Dragon"
+            className="h-full w-auto opacity-90 drop-shadow-lg"
+          />
         </div>
 
-        {/* Aufgabenkarte - Elegant und minimalistisch */}
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h1 className="text-5xl font-bold text-yellow-900 mb-2 tracking-wider">TRUTH</h1>
+          <div className="h-1 w-24 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto"></div>
+        </div>
+
+        {/* Aufgabenkarte */}
         <div
-          className={`w-full bg-white/90 backdrop-blur-md rounded-2xl p-10 shadow-2xl min-h-80 flex flex-col items-center justify-center text-center transition-all duration-300 border border-white/50 ${
+          className={`w-full bg-white/95 backdrop-blur-md rounded-2xl p-10 shadow-2xl min-h-80 flex flex-col items-center justify-center text-center transition-all duration-300 border border-yellow-200/50 ${
             isFlipping ? "opacity-0 scale-95" : "opacity-100 scale-100"
           }`}
         >
           {loading ? (
-            <div className="text-lg text-gray-500">Lädt...</div>
+            <div className="text-lg text-gray-500">Loading...</div>
           ) : currentTask ? (
             <div className="space-y-6">
-              {/* Task Counter */}
-              <div className="text-sm text-gray-400 font-medium tracking-widest">
+              <div className="text-sm text-yellow-600 font-bold tracking-widest">
                 QUESTION {currentTask.id} OF {tasks.length}
               </div>
-              
-              {/* Aufgabentext */}
-              <p className="text-3xl font-bold text-gray-900 leading-relaxed">
+
+              <p className="text-3xl font-bold text-yellow-900 leading-relaxed">
                 {currentTask.text}
               </p>
 
-              {/* Dekorative Linie */}
               <div className="flex items-center gap-3 justify-center pt-4">
-                <div className="h-px w-8 bg-gradient-to-r from-transparent to-gray-300"></div>
-                <div className="w-2 h-2 rounded-full bg-gray-400"></div>
-                <div className="h-px w-8 bg-gradient-to-l from-transparent to-gray-300"></div>
+                <div className="h-px w-8 bg-gradient-to-r from-transparent to-yellow-300"></div>
+                <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                <div className="h-px w-8 bg-gradient-to-l from-transparent to-yellow-300"></div>
               </div>
             </div>
           ) : (
-            <div className="text-lg text-gray-500">Keine Aufgaben verfügbar</div>
+            <div className="text-lg text-gray-500">No questions available</div>
           )}
         </div>
 
-        {/* Navigation Buttons */}
+        {/* Navigation */}
         <div className="flex gap-4 mt-12 justify-center w-full">
           <Button
             onClick={handleNextTask}
             disabled={loading || tasks.length === 0}
-            className="bg-gray-900 hover:bg-gray-800 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transform transition hover:scale-105 flex items-center gap-2"
+            className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-yellow-900 font-bold text-lg px-8 py-6 rounded-full shadow-lg transform transition hover:scale-105 flex items-center gap-2"
           >
             Next Question
             <ChevronRight size={20} />
           </Button>
         </div>
 
-        {/* Hinweis */}
-        <div className="text-center mt-12 text-gray-600 text-sm">
-          <p className="font-medium">Scan the white NFC chip to begin</p>
+        {/* Footer */}
+        <div className="text-center mt-12 text-yellow-700 text-sm font-medium">
+          <p>Scan the white NFC chip to begin</p>
         </div>
       </div>
     </div>
