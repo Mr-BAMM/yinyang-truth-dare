@@ -13,7 +13,10 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5e6d3 0%, #e8d4b8 100%);
+            background-image: url('bg-truth.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -22,7 +25,22 @@
             padding: 1rem;
         }
 
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(2px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
         .container {
+            position: relative;
+            z-index: 2;
             width: 100%;
             max-width: 600px;
             display: flex;
