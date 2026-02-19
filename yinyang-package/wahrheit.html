@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>Wahrheit - Truth or Dare</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5e6d3 0%, #e8d4b8 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Drachen Dekoration */
+        .dragon-top {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+            object-fit: contain;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #8b6914;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd700, #ffed4e);
+            margin: 0 auto;
+        }
+
+        /* Aufgabenkarte */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 2.5rem 1.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            width: 100%;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .card.flip {
+            animation: cardFlip 0.3s ease;
+        }
+
+        @keyframes cardFlip {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .question-number {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #d4a574;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .question-text {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #8b6914;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .decorative-line {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .decorative-line .line {
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(90deg, transparent, #ffd700);
+        }
+
+        .decorative-line .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ffd700;
+        }
+
+        /* Button */
+        .button-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        button {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #8b6914;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        button:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: #8b6914;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .question-text {
+                font-size: 1.3rem;
+            }
+
+            .card {
+                padding: 1.5rem 1rem;
+                min-height: 250px;
+            }
+
+            button {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .dragon-top {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Drachen Dekoration -->
+        <img src="dragon-light.png" alt="Dragon" class="dragon-top">
+
+        <!-- Header -->
+        <div class="header">
+            <h1>TRUTH</h1>
+            <div class="divider"></div>
+        </div>
+
+        <!-- Aufgabenkarte -->
+        <div class="card" id="card">
+            <div class="question-number" id="questionNumber">QUESTION 1 OF 15</div>
+            <p class="question-text" id="questionText">Lädt...</p>
+            <div class="decorative-line">
+                <div class="line"></div>
+                <div class="dot"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="button-container">
+            <button onclick="nextQuestion()">
+                Nächste Frage
+                <span>→</span>
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Scanne den weißen NFC-Chip</p>
+        </div>
+    </div>
+
+    <script>
+        let questions = [];
+        let currentIndex = 0;
+
+        // Lade die JSON-Datei
+        async function loadQuestions() {
+            try {
+                const response = await fetch('wahrheit.json');
+                questions = await response.json();
+                getRandomQuestion();
+            } catch (error) {
+                console.error('Fehler beim Laden der Fragen:', error);
+                document.getElementById('questionText').textContent = 'Fehler beim Laden der Fragen';
+            }
+        }
+
+        function getRandomQuestion() {
+            if (questions.length === 0) return;
+            currentIndex = Math.floor(Math.random() * questions.length);
+            updateDisplay();
+        }
+
+        function nextQuestion() {
+            const card = document.getElementById('card');
+            card.classList.add('flip');
+            
+            setTimeout(() => {
+                getRandomQuestion();
+                card.classList.remove('flip');
+            }, 150);
+        }
+
+        function updateDisplay() {
+            if (questions.length === 0) return;
+            const question = questions[currentIndex];
+            document.getElementById('questionNumber').textContent = 
+                `QUESTION ${question.id} OF ${questions.length}`;
+            document.getElementById('questionText').textContent = 
+                question.text;
+        }
+
+        // Beim Laden die Fragen laden
+        loadQuestions();
+    </script>
+</body>
+</html>

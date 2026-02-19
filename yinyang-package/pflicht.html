@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>Pflicht - Truth or Dare</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            flex: 1;
+            justify-content: center;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #b88fdb;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #b88fdb, #ffd700);
+            margin: 0 auto;
+        }
+
+        /* Aufgabenkarte */
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 2.5rem 1.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(184, 143, 219, 0.3);
+            width: 100%;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .card.flip {
+            animation: cardFlip 0.3s ease;
+        }
+
+        @keyframes cardFlip {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .question-number {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #b88fdb;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .question-text {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .decorative-line {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .decorative-line .line {
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(90deg, transparent, #b88fdb);
+        }
+
+        .decorative-line .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #b88fdb;
+        }
+
+        /* Button */
+        .button-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        button {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: #ffffff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        button:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(168, 85, 247, 0.4);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Drachen Dekoration - Unten */
+        .dragon-bottom {
+            width: 100px;
+            height: 100px;
+            margin-top: 1rem;
+            animation: float 3s ease-in-out infinite;
+            object-fit: contain;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: #b88fdb;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .question-text {
+                font-size: 1.3rem;
+            }
+
+            .card {
+                padding: 1.5rem 1rem;
+                min-height: 250px;
+            }
+
+            button {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .dragon-bottom {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>DARE</h1>
+            <div class="divider"></div>
+        </div>
+
+        <!-- Aufgabenkarte -->
+        <div class="card" id="card">
+            <div class="question-number" id="questionNumber">CHALLENGE 1 OF 15</div>
+            <p class="question-text" id="questionText">Lädt...</p>
+            <div class="decorative-line">
+                <div class="line"></div>
+                <div class="dot"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="button-container">
+            <button onclick="nextQuestion()">
+                Nächste Challenge
+                <span>→</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Drachen Dekoration -->
+    <img src="dragon-dark.png" alt="Dragon" class="dragon-bottom">
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Scanne den schwarzen NFC-Chip</p>
+    </div>
+
+    <script>
+        let challenges = [];
+        let currentIndex = 0;
+
+        // Lade die JSON-Datei
+        async function loadChallenges() {
+            try {
+                const response = await fetch('pflicht.json');
+                challenges = await response.json();
+                getRandomChallenge();
+            } catch (error) {
+                console.error('Fehler beim Laden der Challenges:', error);
+                document.getElementById('questionText').textContent = 'Fehler beim Laden der Challenges';
+            }
+        }
+
+        function getRandomChallenge() {
+            if (challenges.length === 0) return;
+            currentIndex = Math.floor(Math.random() * challenges.length);
+            updateDisplay();
+        }
+
+        function nextQuestion() {
+            const card = document.getElementById('card');
+            card.classList.add('flip');
+            
+            setTimeout(() => {
+                getRandomChallenge();
+                card.classList.remove('flip');
+            }, 150);
+        }
+
+        function updateDisplay() {
+            if (challenges.length === 0) return;
+            const challenge = challenges[currentIndex];
+            document.getElementById('questionNumber').textContent = 
+                `CHALLENGE ${challenge.id} OF ${challenges.length}`;
+            document.getElementById('questionText').textContent = 
+                challenge.text;
+        }
+
+        // Beim Laden die Challenges laden
+        loadChallenges();
+    </script>
+</body>
+</html>
